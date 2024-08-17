@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search</title>
+    <link rel="icon" href="./assets/film-solid.svg">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="index.js" defer></script>
+</head>
+<nav>
+    <figure><img class="border-top" src="./assets/wave (2).svg"></figure>
+    <div class="nav__container"> 
+        <img class="logo" src="./assets/Library.svg" alt="">
+        <ul class="nav__links">
+            <li><a href="" class="nav__link">Home</a></li>
+            <li><a href="" class="nav__link no-cursor">Contact</a></li>
+            <li><a href="" class="nav__link nav__link--primary">Movies</a></li>
+        </ul>
+    </div>
+</nav>
+<body>
+    <div class="loading-spinner" id="loading-spinner">
+        <i class="fas fa-spinner fa-spin"></i>
+    </div>
+
+    <div id="content" class="hidden">
+        <div id="search-container">
+            <h1>Movie Search</h1>
+            <input type="text" id="search-input" placeholder="Search for a movie.....">
+            <button class="btn" onclick="searchMovies()">Search</button>
+            <figure><img class="movie-img" src="./assets/undraw_video_streaming_re_v3qg.svg"></figure>
+        </div>
+
+        <div id="results-container" class="hidden">
+            <div class="sort-container hidden" id="sort-container">
+                <label for="sort">Sort by: </label>
+                <select id="sort" onchange="sortMovies()">
+                    <option value="year-desc">Year (Newest to Oldest)</option>
+                    <option value="year-asc">Year (Oldest to Newest)</option>
+                    <option value="title-asc">Title (A-Z)</option>
+                    <option value="title-desc">Title (Z-A)</option>
+                </select>
+            </div>&nbsp;&nbsp;
+            <div class="back-button hidden" id="back-button">
+                <button class="btn" onclick="goBack()">Back to Search</button>
+            </div>
+            <div class="movie-container" id="movie-container"></div>
+        </div>
+    </div>
+</body>
+<footer>
+    <div class="footer-container">
+        <div class="row">
+            <a href="#">
+                <figure class="footer__logo">
+                    <img src="./assets/Library.svg" class="footer__logo--img" alt="">
+                </figure>
+            </a>
+            <div class="footer__list">
+                <a href="" class="footer__link">Home</a>
+                <a href="" class="footer__link no-cursor">About</a>
+                <a href="" class="footer__link">Movies</a>
+                <a href="" class="footer__link no-cursor">Contact</a>
+            </div>
+            <div class="footer__copyright">Copyright &copy; 2024 Movie Search
+            </div>
+            <figure><img class="border" src="./assets/wave (2).svg"></figure>
+        </div>
+    </div>
+</footer>
+</html>

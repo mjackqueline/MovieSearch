@@ -1,0 +1,100 @@
+let movies = [];
+
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        hideSpinner();
+        document.getElementById('content').classList.remove('hidden');
+    }, 1000); 
+});
+
+function showSpinner() {
+    document.getElementById('loading-spinner').style.display = 'flex';
+}
+
+function hideSpinner() {
+    document.getElementById('loading-spinner').style.display = 'none';
+}
+
+function searchMovies() {
+    const query = document.getElementById('search-input').value;
+
+    if (query.trim() === '') {
+        alert('Please enter a movie name');
+        return;
+    }
+
+    const apiUrl = `http://www.omdbapi.com/?apikey=c1f9c978&s=${encodeURIComponent(query)}&type=movie`;
+
+    showSpinner();
+
+    setTimeout(() => {
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                if (data.Response === "True") {
+                    movies = data.Search.slice(0, 9); 
+                    displayMovies(movies);
+                } else {
+                    displayError(`No movies found for "${query}". Please try another search.`);
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching movie data:", error);
+                displayError('Error fetching movie data. Please try again later.');
+            })
+            .finally(() => {
+                hideSpinner();
+            });
+    }, 2000); 
+}
+
+function displayMovies(movies) {
+    const movieContainer = document.getElementById('movie-container');
+    const movieHTML = movies.map(movie => `
+        <div class="movie">
+            <img src="${movie.Poster !== "N/A" ? movie.Poster : 'placeholder.jpg'}" alt="${movie.Title}">
+            <h3>${movie.Title}</h3>
+            <p>${movie.Year}</p>
+        </div>
+    `).join('');
+    movieContainer.innerHTML = movieHTML;
+    document.getElementById('search-container').classList.add('hidden');
+    document.getElementById('results-container').classList.remove('hidden');
+    document.getElementById('sort-container').classList.remove('hidden'); 
+    document.getElementById('back-button').classList.remove('hidden'); 
+}
+
+function displayError(message) {
+    const movieContainer = document.getElementById('movie-container');
+    movieContainer.innerHTML = `<p>${message}</p>`;
+    document.getElementById('search-container').classList.add('hidden');
+    document.getElementById('results-container').classList.remove('hidden');
+    document.getElementById('sort-container').classList.add('hidden'); 
+    document.getElementById('back-button').classList.remove('hidden'); 
+}
+
+function sortMovies() {
+    const sortOrder = document.getElementById('sort').value;
+    if (sortOrder.startsWith('year')) {
+        movies.sort((a, b) => {
+            return sortOrder === 'year-asc' ? a.Year - b.Year : b.Year - a.Year;
+        });
+    } else if (sortOrder.startsWith('title')) {
+        movies.sort((a, b) => {
+            return sortOrder === 'title-asc' 
+                ? a.Title.localeCompare(b.Title) 
+                : b.Title.localeCompare(a.Title);
+        });
+    }
+    displayMovies(movies); 
+}
+
+function goBack() {
+    document.getElementById('search-container').classList.remove('hidden');
+    document.getElementById('results-container').classList.add('hidden');
+    document.getElementById('sort-container').classList.add('hidden'); 
+    document.getElementById('back-button').classList.add('hidden'); 
+    document.getElementById('search-input').value = '';
+    document.getElementById('movie-container').innerHTML = '';
+    movies = []; 
+}
