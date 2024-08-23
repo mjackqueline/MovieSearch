@@ -56,8 +56,7 @@ function fetchMovieDetails(movies) {
             .then(response => response.json())
             .then(detailData => {
                 return {
-                    ...movie,
-                    Runtime: detailData.Runtime
+                    ...movie
                 };
             });
     });

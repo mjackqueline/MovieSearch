@@ -239,6 +239,11 @@ body {
     display: none;
   }
 
+  .nav__container {
+    padding: 0;
+    justify-content: center;
+  }
+
   #results-container, .movie-container {
    width: 100px;
   }
