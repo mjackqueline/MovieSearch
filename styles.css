@@ -55,18 +55,6 @@ li {
   text-underline-position: under;
 }
 
-.nav__link--primary {
-  border: 2px solid #A9889D;
-  border-radius: 4px;
-  transition: all 300ms ease;
-}
-
-.nav__link--primary:hover {
-  text-decoration: none;
-  border: 2px solid #D3B6B7;
-  color: #2F2E41;
-}
-
 .logo {
   height: 75px;
   width: 175px;
@@ -244,8 +232,17 @@ body {
   }
 
   .nav__container {
-    padding: 0;
+    padding: 24px 0 0 0;
     justify-content: center;
+  }
+
+  .nav__link {
+    font-size: 18px;
+    color: #3F3D56;
+  }
+  
+  .nav__link:hover {
+    color: #000000;
   }
 
   .sort-container {
