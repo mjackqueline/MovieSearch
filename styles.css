@@ -191,6 +191,10 @@ body {
   background-color: #2F2E41;
 }
 
+.sort-container {
+  margin-bottom: 12px;
+}
+
 .movie-img {
   margin-top: 24px;
   width: 360px;
@@ -242,6 +246,10 @@ body {
   .nav__container {
     padding: 0;
     justify-content: center;
+  }
+
+  .sort-container {
+    margin-bottom: 0;
   }
 
   .back-btn {
