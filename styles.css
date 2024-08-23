@@ -230,3 +230,16 @@ body {
 .no-cursor {
   cursor: not-allowed;
 }
+
+/* SMALL PHONES, TABLETS, LARGE SMARTPHONES */
+
+@media (max-width: 865px) {
+
+  .logo {
+    display: none;
+  }
+
+  #results-container, .movie-container {
+   width: 100px;
+  }
+}
