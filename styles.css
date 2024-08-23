@@ -222,6 +222,11 @@ body {
   text-underline-position: under;
 }
 
+.footer__logo--img {
+  width: 24px;
+  height: 24px;
+}
+
 .no-cursor {
   cursor: not-allowed;
 }
