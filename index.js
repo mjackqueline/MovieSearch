@@ -50,7 +50,7 @@ function searchMovies() {
 
 function fetchMovieDetails(movies) {
     const detailedMovies = movies.map(movie => {
-        const detailUrl = `http://www.omdbapi.com/?apikey=c1f9c978&i=${movie.imdbID}`;
+        const detailUrl = `https://www.omdbapi.com/?apikey=c1f9c978&i=${movie.imdbID}`;
         
         return fetch(detailUrl)
             .then(response => response.json())
