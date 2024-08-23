@@ -33,7 +33,7 @@ function searchMovies() {
             .then(data => {
                 if (data.Response === "True") {
                     movies = data.Search.slice(0, 9); 
-                    displayMovies(movies);
+                    fetchMovieDetails(movies);
                 } else {
                     displayError(`No movies found for "${query}". Please try another search.`);
                 }
@@ -48,13 +48,38 @@ function searchMovies() {
     }, 2000); 
 }
 
+function fetchMovieDetails(movies) {
+    const detailedMovies = movies.map(movie => {
+        const detailUrl = `http://www.omdbapi.com/?apikey=c1f9c978&i=${movie.imdbID}`;
+        
+        return fetch(detailUrl)
+            .then(response => response.json())
+            .then(detailData => {
+                return {
+                    ...movie,
+                    Runtime: detailData.Runtime
+                };
+            });
+    });
+
+    Promise.all(detailedMovies).then(moviesWithDetails => {
+        displayMovies(moviesWithDetails);
+    }).catch(error => {
+        console.error("Error fetching movie details:", error);
+        displayError('Error fetching movie details. Please try again later.');
+    });
+}
+
 function displayMovies(movies) {
     const movieContainer = document.getElementById('movie-container');
     const movieHTML = movies.map(movie => `
-        <div class="movie">
-            <img src="${movie.Poster !== "N/A" ? movie.Poster : 'placeholder.jpg'}" alt="${movie.Title}">
-            <h3>${movie.Title}</h3>
-            <p>${movie.Year}</p>
+        <div class="wrapper">
+            <div class="movie-topper"></div>
+            <div class="movie">
+                <img src="${movie.Poster !== "N/A" ? movie.Poster : 'placeholder.jpg'}" alt="${movie.Title}">
+                <h3>${movie.Title}</h3>
+                <p>${movie.Year}</p>
+            </div>
         </div>
     `).join('');
     movieContainer.innerHTML = movieHTML;
@@ -77,13 +102,13 @@ function sortMovies() {
     const sortOrder = document.getElementById('sort').value;
     if (sortOrder.startsWith('year')) {
         movies.sort((a, b) => {
-            return sortOrder === 'year-asc' ? a.Year - b.Year : b.Year - a.Year;
+            return sortOrder === 'year-asc' ? parseInt(a.Year) - parseInt(b.Year) : parseInt(b.Year) - parseInt(a.Year);
         });
     } else if (sortOrder.startsWith('title')) {
         movies.sort((a, b) => {
             return sortOrder === 'title-asc' 
-                ? a.Title.localeCompare(b.Title) 
-                : b.Title.localeCompare(a.Title);
+                ? a.Title.toLowerCase().localeCompare(b.Title.toLowerCase()) 
+                : b.Title.toLowerCase().localeCompare(a.Title.toLowerCase());
         });
     }
     displayMovies(movies); 
