@@ -177,7 +177,7 @@ body {
   width: 800px;
 }
 
-.btn {
+.btn, .back-btn {
   background-color: #A9889D;
   color: white;
   padding: 4px 12px;
@@ -187,7 +187,7 @@ body {
   transition: all 300ms ease;
 }
 
-.btn:hover {
+.btn:hover, .back-btn:hover {
   background-color: #2F2E41;
 }
 
@@ -244,7 +244,7 @@ body {
     justify-content: center;
   }
 
-  .btn {
+  .back-btn {
     width: 180px;
     margin-bottom: 20px;
   }
