@@ -142,8 +142,10 @@ function openModal(imdbID) {
             const modalBody = document.getElementById('modal-body');
             modalBody.innerHTML = `
                 <div class="modal__half modal__img">
-                    <h2><strong>${movie.Title}</strong></h2>
-                    <figure><img src="${movie.Poster !== "N/A" ? movie.Poster : 'placeholder.jpg'}" alt="${movie.Title}"></figure>
+                    <figure class="movie__titleAndimg">
+                    <span class="title">${movie.Title}</span>
+                    <img class="movie__poster" src="${movie.Poster !== "N/A" ? movie.Poster : 'placeholder.jpg'}" alt="${movie.Title}">
+                    </figure>
                 </div>
                 <div class="modal__half modal__about">
                     <div class"movie__title>
