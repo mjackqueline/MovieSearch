@@ -75,13 +75,23 @@ function displayMovies(movies) {
         <div class="wrapper">
             <div class="movie-topper"></div>
             <div class="movie">
-                <img src="${movie.Poster !== "N/A" ? movie.Poster : 'placeholder.jpg'}" alt="${movie.Title}">
+                <img class="movie-img" src="${movie.Poster !== "N/A" ? movie.Poster : 'placeholder.jpg'}" alt="${movie.Title}" data-id="${movie.imdbID}">
                 <h3>${movie.Title}</h3>
                 <p>${movie.Year}</p>
             </div>
         </div>
     `).join('');
     movieContainer.innerHTML = movieHTML;
+
+    // Add event listeners to movie images
+    const movieImages = document.querySelectorAll('.movie-img');
+    movieImages.forEach(img => {
+        img.addEventListener('click', function() {
+            const imdbID = this.getAttribute('data-id');
+            openModal(imdbID);
+        });
+    });
+
     document.getElementById('search-container').classList.add('hidden');
     document.getElementById('results-container').classList.remove('hidden');
     document.getElementById('sort-container').classList.remove('hidden'); 
@@ -122,3 +132,51 @@ function goBack() {
     document.getElementById('movie-container').innerHTML = '';
     movies = []; 
 }
+
+function openModal(imdbID) {
+    const detailUrl = `https://www.omdbapi.com/?apikey=c1f9c978&i=${imdbID}`;
+
+    fetch(detailUrl)
+        .then(response => response.json())
+        .then(movie => {
+            const modalBody = document.getElementById('modal-body');
+            modalBody.innerHTML = `
+                <div class="modal__half modal__img">
+                    <h2><strong>${movie.Title}</strong></h2>
+                    <figure><img src="${movie.Poster !== "N/A" ? movie.Poster : 'placeholder.jpg'}" alt="${movie.Title}"></figure>
+                </div>
+                <div class="modal__half modal__about">
+                    <div class"movie__title>
+                        <h3> Movie Details</h3>
+                    </div>
+                    <div class="movie__details">
+                        <p><strong>Year:</strong> ${movie.Year}</p>
+                        <p><strong>Runtime:</strong> ${movie.Runtime}</p>
+                        <p><strong>Genre:</strong> ${movie.Genre}</p>
+                        <p><strong>Plot:</strong> ${movie.Plot}</p>
+                        <p><strong>Director:</strong> ${movie.Director}</p>
+                        <p><strong>Actors:</strong> ${movie.Actors}</p>
+                    </div>
+                </div>
+            `;
+            document.querySelector('.modal-overlay').style.display = "block"; // Show overlay
+            document.getElementById('movieModal').style.display = "block";
+        })
+        .catch(error => {
+            console.error("Error fetching movie details:", error);
+        });
+}
+
+function closeModal() {
+    document.getElementById('movieModal').style.display = "none";
+    document.querySelector('.modal-overlay').style.display = "none"; // Hide overlay
+}
+
+document.querySelector('.close').addEventListener('click', closeModal);
+
+
+document.querySelector('.modal-overlay').addEventListener('click', function(event) {
+    if (event.target === this) {
+        closeModal();
+    }
+});
