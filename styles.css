@@ -165,7 +165,7 @@ body {
 
 .movie-img {
   margin-top: 72px;
-  width: 660px;
+  width: 80%;
 }
 
 /* SPINNER */
@@ -180,11 +180,13 @@ body {
   width: 100%;
   height: 100%;
   z-index: 9999;
+  padding-top: 36px;
+  padding-right: 38px;
 }
 
 .fa-spinner {
   animation: rotate 600ms infinite linear;
-  color: #A9889D;
+  color: #4E485F;
   font-size: 50px;
 }
 
