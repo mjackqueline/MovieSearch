@@ -9,10 +9,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function showSpinner() {
     document.getElementById('loading-spinner').style.display = 'flex';
+
+    const images = document.querySelectorAll('.hidden__image'); // Select all elements with the class 'movie-image'
+    images.forEach(image => {
+        image.style.visibility = 'hidden'; // Hide each image
+    });
 }
 
 function hideSpinner() {
     document.getElementById('loading-spinner').style.display = 'none';
+    
+    const images = document.querySelectorAll('.hidden__image'); // Select all elements with the class 'movie-image'
+    images.forEach(image => {
+        image.style.visibility = 'visible'; })
 }
 
 function searchMovies() {

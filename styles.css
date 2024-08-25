@@ -121,6 +121,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .movie {
     border: 1px solid #ddd;
     margin: 0 10px 10px 10px;
@@ -131,6 +132,7 @@ body {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+
 .movie img {
     max-width: 100%;
     height: auto;
@@ -145,6 +147,7 @@ body {
   flex-wrap: wrap;
   margin: 0 auto;
   width: 800px;
+  margin-bottom: 48px;
 }
 
 .btn, .back-btn {
@@ -194,13 +197,11 @@ body {
   width: 100%;
   height: 100%;
   z-index: 9999;
-  padding-top: 36px;
-  padding-right: 38px;
 }
 
 .fa-spinner {
   animation: rotate 600ms infinite linear;
-  color: #4E485F;
+  color: #A9889D;
   font-size: 50px;
 }
 
@@ -330,6 +331,13 @@ body {
 }
 
 /* FOOTER */
+
+.row {
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin-bottom: 20px;
+}
 
 .footer__link,
 .footer__copyright {
