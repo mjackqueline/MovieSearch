@@ -227,7 +227,7 @@ body {
   width: 80%;
   max-width: 1100px;
   height: 552px; 
-  max-height: 80vh; /* Set a max height relative to the viewport height */
+  max-height: 80vh;
   overflow-y: auto;
   box-sizing: border-box;
   border-radius: 20px;
