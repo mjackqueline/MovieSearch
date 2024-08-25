@@ -170,6 +170,13 @@ body {
 
 .movie-img {
   cursor: pointer;
+  transform: scale(1);
+  transition: all 300ms ease;
+}
+
+.movie-img:hover {
+  transform: scale(.9);
+  opacity: .8;
 }
 
 /* SPINNER */
