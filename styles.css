@@ -163,9 +163,13 @@ body {
   margin-bottom: 12px;
 }
 
-.movie-img {
+.main__img {
   margin-top: 72px;
-  width: 80%;
+  width: 70%;
+}
+
+.movie-img {
+  cursor: pointer;
 }
 
 /* SPINNER */
