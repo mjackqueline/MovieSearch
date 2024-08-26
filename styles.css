@@ -170,7 +170,7 @@ body {
 
 .main__img {
   margin-top: 72px;
-  width: 70%;
+  width: 75%;
 }
 
 .movie-img {
@@ -333,10 +333,18 @@ body {
 /* FOOTER */
 
 .row {
+  position: fixed;
   bottom: 0;
   right: 0;
   left: 0;
   margin-bottom: 20px;
+}
+
+
+.footer-relative {
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer__link,

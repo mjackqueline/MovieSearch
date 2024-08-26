@@ -7,6 +7,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1000); 
 });
 
+document.getElementById('search-input').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Prevent the default form submission behavior
+        searchMovies(); // Call the searchMovies function
+    }
+});
+
 function showSpinner() {
     document.getElementById('loading-spinner').style.display = 'flex';
 
@@ -105,6 +112,9 @@ function displayMovies(movies) {
     document.getElementById('results-container').classList.remove('hidden');
     document.getElementById('sort-container').classList.remove('hidden'); 
     document.getElementById('back-button').classList.remove('hidden'); 
+
+    
+    document.getElementById('page__footer').classList.add('footer-relative');
 }
 
 function displayError(message) {
@@ -140,6 +150,8 @@ function goBack() {
     document.getElementById('search-input').value = '';
     document.getElementById('movie-container').innerHTML = '';
     movies = []; 
+
+    document.getElementById('page__footer').classList.remove('footer-relative');
 }
 
 function openModal(imdbID) {
