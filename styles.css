@@ -133,7 +133,7 @@ body {
     border-bottom-right-radius: 20px;
 }
 
-.movie img {
+.movie-img {
     max-width: 100%;
     height: auto;
 }
@@ -411,6 +411,11 @@ body {
   .back-btn {
     width: 180px;
     margin-bottom: 20px;
+  }
+
+  .main__img {
+    margin-top: 180px;
+    width: 100%;
   }
 
   #results-container, .movie-container {
