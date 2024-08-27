@@ -62,7 +62,7 @@ li {
 }
 
 .nav__link:hover {
-  color: #33325F;
+  color: #473943;
   text-decoration: underline;
   text-decoration-color: #D3B6B7;
   text-underline-position: under;
@@ -347,7 +347,6 @@ body {
   margin-bottom: 20px;
 }
 
-
 .footer-relative {
   position: relative;
   bottom: 0;
@@ -374,7 +373,7 @@ body {
 }
 
 .footer__link:hover {
-  color: #33325F;
+  color: #473943;
   text-decoration: underline;
   text-decoration-color: #D3B6B7;
   text-underline-position: under;
@@ -383,6 +382,12 @@ body {
 .footer__logo--img {
   width: 24px;
   height: 24px;
+  filter: invert(100%);
+  transition: all 300ms ease;
+}
+
+.footer__logo--img:hover {
+  filter: none;
 }
 
 .no-cursor {
@@ -469,5 +474,13 @@ body {
   .modal__half {
     width: 90%;
     padding: 12px;
+  }
+
+  .footer__logo--img {
+    filter: none;
+  }
+
+  .footer__logo--img:hover {
+    filter: invert(32%) sepia(11%) saturate(665%) hue-rotate(264deg) brightness(90%) contrast(92%);
   }
 }
