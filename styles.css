@@ -225,9 +225,15 @@ body.dark-theme {
   background-color: black;
 }
 
-.dark-theme h3, .dark-theme p {
+.dark-theme h3, .dark-theme p, .dark-theme .footer__link,
+.dark-theme .footer__copyright  {
   color: white;
 }
+
+.dark-theme .footer__logo--img {
+  filter: invert(100%);
+}
+
 
 
 /* SPINNER */
@@ -458,6 +464,10 @@ body.dark-theme {
     color: #000000;
   }
 
+  .fa-adjust {
+    color: #3F3D56;
+  }
+
   .sort-container {
     margin-bottom: 0;
   }
@@ -512,6 +522,12 @@ body.dark-theme {
   .modal__half {
     width: 90%;
     padding: 12px;
+  }
+
+  .dark-theme h1 {
+    background-image: linear-gradient(#866D7E, white);
+    color: transparent;
+    background-clip: text;
   }
 
   .footer__logo--img {
