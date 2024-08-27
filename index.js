@@ -1,4 +1,5 @@
 let movies = [];
+let contrastToggle = false;
 
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
@@ -29,6 +30,16 @@ function hideSpinner() {
     const images = document.querySelectorAll('.hidden__image'); // Select all elements with the class 'movie-image'
     images.forEach(image => {
         image.style.visibility = 'visible'; })
+}
+
+function toggleContrast() {
+    contrastToggle = !contrastToggle;
+    if (contrastToggle) {
+        document.body.classList += "dark-theme"
+    }
+    else {
+        document.body.classList.remove("dark-theme")
+    }
 }
 
 function searchMovies() {
