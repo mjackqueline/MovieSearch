@@ -220,6 +220,11 @@ body.dark-theme {
   background-color: black;
 }
 
+.dark-theme .movie, .dark-theme .movie-topper {
+  border: 1px solid #4F485F;
+}
+
+
 .dark-theme h3, .dark-theme p, .dark-theme .footer__link,
 .dark-theme .footer__copyright  {
   color: white;
