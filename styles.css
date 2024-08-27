@@ -224,7 +224,6 @@ body.dark-theme {
   border: 1px solid #4F485F;
 }
 
-
 .dark-theme h3, .dark-theme p, .dark-theme .footer__link,
 .dark-theme .footer__copyright  {
   color: white;
@@ -234,8 +233,10 @@ body.dark-theme {
   filter: invert(100%);
 }
 
+footer.dark-theme
+
 .dark-theme .fa-adjust {
-    color: white;
+  background-color: black;
 }
 
 /* SPINNER */
