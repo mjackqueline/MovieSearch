@@ -24,6 +24,13 @@ strong {
   color: #866D7E;
 }
 
+h1 {
+  font-size: 40px;
+  background-image: linear-gradient(#866D7E, black);
+  color: transparent;
+  background-clip: text;
+}
+
 /* NAV */
 
 .nav__container {
@@ -385,6 +392,10 @@ body {
 /* SMALL PHONES, TABLETS, LARGE SMARTPHONES */
 
 @media (max-width: 865px) {
+
+  h1 {
+    font-size: 32px;
+  }
 
   .logo {
     display: none;
