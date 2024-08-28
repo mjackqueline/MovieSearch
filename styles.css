@@ -103,6 +103,48 @@ body {
   z-index: -1;
 }
 
+.wave1 {
+  position:fixed;
+  bottom:0px;
+  z-index: -1;
+  opacity: .6;
+  animation: animateWaves 3s linear infinite;
+  width: 150vw;
+}
+
+@keyframes animateWaves {
+  0% {
+    transform: translateX(0); /* Start in the normal position */
+  }
+  50% {
+    transform: translateX(-10%); /* Move to the left outside of the screen */
+  }
+  100% {
+    transform: translateX(0); /* Return to the normal position */
+}
+}
+
+.wave2 {
+  position:fixed;
+  bottom:0px;
+  z-index: -1;
+  opacity: .6;
+  animation: animateWaves2 3s linear infinite;
+  width: 150vw;
+}
+
+@keyframes animateWaves2 {
+  0% {
+    transform: translateX(-10%); 
+  }
+  50% {
+    transform: translateX(0%); 
+  }
+  100% {
+    transform: translateX(-10%); 
+}
+}
+
 #search-container {
   padding: 24px;
   text-align: center;
