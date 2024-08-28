@@ -289,6 +289,10 @@ body.dark-theme {
 
 .dark-theme .fa-adjust {
   color: white;
+} 
+
+.dark-theme .sort-label {
+  color: white;
 }
 
 /* SPINNER */
