@@ -108,8 +108,9 @@ body {
   bottom:0px;
   z-index: -1;
   opacity: .6;
-  animation: animateWaves 3s linear infinite;
+  animation: animateWaves 5s linear infinite;
   width: 150vw;
+
 }
 
 @keyframes animateWaves {
@@ -117,7 +118,7 @@ body {
     transform: translateX(0); /* Start in the normal position */
   }
   50% {
-    transform: translateX(-10%); /* Move to the left outside of the screen */
+    transform: translateX(-20%); /* Move to the left outside of the screen */
   }
   100% {
     transform: translateX(0); /* Return to the normal position */
@@ -129,19 +130,19 @@ body {
   bottom:0px;
   z-index: -1;
   opacity: .6;
-  animation: animateWaves2 3s linear infinite;
+  animation: animateWaves2 5s linear infinite;
   width: 150vw;
 }
 
 @keyframes animateWaves2 {
   0% {
-    transform: translateX(-10%); 
+    transform: translateX(-20%); 
   }
   50% {
     transform: translateX(0%); 
   }
   100% {
-    transform: translateX(-10%); 
+    transform: translateX(-20%); 
 }
 }
 
