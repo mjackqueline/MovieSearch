@@ -106,43 +106,60 @@ body {
 .wave1 {
   position:fixed;
   bottom:0px;
-  z-index: -1;
-  opacity: .6;
-  animation: animateWaves 5s linear infinite;
+  z-index: -2;
+  opacity: .8;
+  animation: animateWaves 30s linear infinite;
   width: 150vw;
 
 }
 
 @keyframes animateWaves {
   0% {
-    transform: translateX(0); /* Start in the normal position */
+    transform: translateX(-100%); 
   }
-  50% {
-    transform: translateX(-20%); /* Move to the left outside of the screen */
-  }
+
   100% {
-    transform: translateX(0); /* Return to the normal position */
+    transform: translateX(100%); 
 }
 }
 
 .wave2 {
   position:fixed;
-  bottom:0px;
-  z-index: -1;
+  bottom: 0px;
+  z-index: -3;
   opacity: .6;
-  animation: animateWaves2 5s linear infinite;
+  animation: animateWaves2 30s linear infinite;
   width: 150vw;
+  margin-bottom: 60px;
 }
 
 @keyframes animateWaves2 {
   0% {
-    transform: translateX(-20%); 
+    transform: translateX(100%); 
   }
-  50% {
+
+  100% {
+    transform: translateX(-100%); 
+  }
+}
+
+.wave3 {
+  position:fixed;
+  bottom: 0px;
+  z-index: -3;
+  opacity: .4;
+  animation: animateWaves3 30s linear infinite;
+  width: 150vw;
+  margin-bottom: 60px;
+}
+
+@keyframes animateWaves3 {
+  0% {
     transform: translateX(0%); 
   }
+
   100% {
-    transform: translateX(-20%); 
+    transform: translateX(200%); 
 }
 }
 
